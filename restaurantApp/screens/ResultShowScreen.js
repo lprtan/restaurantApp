@@ -21,13 +21,13 @@ export default function ResultShowScreen({route}) {
     }
   return (
     <View>
-      <Text>{result.name}</Text>
-      <Text>{result.phone}</Text>
+      <Text style={styles.title}>{result.name}</Text>
+      <Text style={styles.phone}>{result.phone}</Text>
       <FlatList
         data={result.photos}
         renderItem={({ item }) => {
           return (
-            <Image style={{ width: 50, height: 50 }} source={{ uri: item }} />
+            <Image style={styles.image} source={{ uri: item }} />
           );
         }}
       />
@@ -35,4 +35,20 @@ export default function ResultShowScreen({route}) {
   )
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    image: {
+        height: 180,
+        margin: 10,
+        borderRadius: 20
+    },
+    title: {
+        alignSelf: 'center',
+        fontSize: 25,
+        marginVertical: 10,
+        fontWeight: 'bold'
+    },
+    phone: {
+        alignSelf: 'center',
+        fontSize: 20
+    }
+})
